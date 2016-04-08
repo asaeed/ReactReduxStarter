@@ -1,11 +1,13 @@
 var path = require('path')
 var webpack = require('webpack')
+var autoprefixer = require('autoprefixer')
+var precss = require('precss')
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: [
     'webpack-hot-middleware/client',
-    './index'
+    './src/index'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -21,9 +23,17 @@ module.exports = {
       {
         test: /\.js$/,
         loaders: ['babel'],
-        exclude: /node_modules/,
-        include: __dirname
+        //exclude: /node_modules/,
+        include: path.join(__dirname, 'src')
+      },
+      {
+        test:   /\.css$/,
+        loader: "style-loader!css-loader!postcss-loader",
+        include: path.join(__dirname, 'src')
       }
     ]
+  },
+  postcss: function () {
+    return [require('autoprefixer'), require('precss')];
   }
 }

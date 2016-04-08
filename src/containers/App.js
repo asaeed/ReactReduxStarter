@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { selectReddit, fetchPostsIfNeeded, invalidateReddit } from '../actions'
 import Picker from '../components/Picker'
 import Posts from '../components/Posts'
+import styles from './App.css'
 
 class App extends Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class App extends Component {
     const { selectedReddit, posts, isFetching, lastUpdated } = this.props
     const isEmpty = posts.length === 0
     return (
-      <div>
+      <div className={styles.app}>
         <Picker value={selectedReddit}
                 onChange={this.handleChange}
                 options={[ 'reactjs', 'frontend' ]} />

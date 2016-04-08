@@ -1,0 +1,8 @@
+
+body {
+	background-color: gainsboro;
+}
+
+:local(.app) {
+	background-color: pink;
+}
