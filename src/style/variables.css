@@ -1,0 +1,31 @@
+
+/* 
+  rules of css for this app:
+
+  1.  all local css using css-modules (css-loader for webpack)
+
+  2.  import one css file from another (postcss-import),
+  	  define w3c urls (postcss-url),
+      define w3c variables (postcss-custom-properties),
+      nesting the w3c way (postcss-nesting), 
+      autoprefixing (autoprefixer)
+  
+  4.  can use "composes" (composes: class from "file.css") but has its limits
+
+  5.  nesting pseudo-elements is safe but...
+      NO NESTING CLASSES in anything that is "composed", the composers can tho **
+      nesting was not working well because of the naming config for css-modules in webpack.config.js
+	      &localIdentName=[name]__[local]__[hash:base64:5]
+	  if using sass (or nesting for that matter), go with plain old class names
+	      &localIdentName=[local]
+
+  6.  do more in javascript - import multiple files, write logic to assign classes
+
+  7.  camelCase for class names so they can be used easily in both CSS and JS (and look better when compiled)
+
+*/
+
+:root {
+  --mainColor: green;
+}
+

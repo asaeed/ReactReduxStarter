@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { selectReddit, fetchPostsIfNeeded, invalidateReddit } from '../actions'
+import Header from '../components/Header'
 import Picker from '../components/Picker'
 import Posts from '../components/Posts'
 import styles from './App.css'
@@ -41,6 +42,7 @@ class App extends Component {
     const isEmpty = posts.length === 0
     return (
       <div className={styles.app}>
+        <Header title="Title" />
         <Picker value={selectedReddit}
                 onChange={this.handleChange}
                 options={[ 'reactjs', 'frontend' ]} />

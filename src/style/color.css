@@ -1,0 +1,30 @@
+
+.textWhite {
+	color: white;
+	
+	&:hover {
+		color: red;
+	}
+}
+
+
+.bgBlack {
+	composes: textWhite;
+	background-color: black;
+}
+
+.bg-darkgray {
+	background-color: #212121;
+	color: #ffffff;
+}
+
+.bg-gray {
+	background-color: #303030;
+	color: #ffffff;
+}
+
+.bg-lightgray {
+	background-color: #424242;
+	color: #ffffff;
+}
+
