@@ -1,7 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-//var cssnext = require('postcss-cssnext')  // includes autoprefixer, postcss-nesting
 var postcssImport = require('postcss-import')
 var postcssUrl = require('postcss-url')
 var postcssVars = require('postcss-custom-properties')
@@ -45,6 +44,27 @@ module.exports = {
         //loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[local]!postcss-loader'),
         
         include: path.join(__dirname, 'src')
+      },
+      {
+        test: /\.css$/,
+        loader: 'style!css',
+        include: path.join(__dirname, 'node_modules/font-awesome')
+      },
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff',
+        include: [
+          path.join(__dirname, 'node_modules/font-awesome'),
+          path.join(__dirname, 'src/assets/font')
+        ]
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'file-loader',
+        include: [
+          path.join(__dirname, 'node_modules/font-awesome'),
+          path.join(__dirname, 'src/assets/font')
+        ]
       }
     ]
   },

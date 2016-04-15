@@ -1,9 +1,17 @@
 
+@import "../assets/css/variables.css";
+@import "../assets/css/type.css";
+
+html, body {
+	height: 100%;
+}
+
 body {
 	margin: 0;
-	background-color: gainsboro;
+	margin-top: 50px;
 }
 
 :local(.app) {
-	background-color: pink;
+	composes: bgGray from "../assets/css/color.css";
+	height: 100%;
 }

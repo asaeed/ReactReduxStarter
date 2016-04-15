@@ -42,11 +42,11 @@ class App extends Component {
     const isEmpty = posts.length === 0
     return (
       <div className={styles.app}>
-        <Header title="Title" />
+        <Header title="Dashboard Title" />
         <Picker value={selectedReddit}
                 onChange={this.handleChange}
                 options={[ 'reactjs', 'frontend' ]} />
-        <p>
+        <div>
           {lastUpdated &&
             <span>
               Last updated at {new Date(lastUpdated).toLocaleTimeString()}.
@@ -59,7 +59,7 @@ class App extends Component {
               Refresh
             </a>
           }
-        </p>
+        </div>
         {isEmpty
           ? (isFetching ? <h2>Loading...</h2> : <h2>Empty.</h2>)
           : <div style={{ opacity: isFetching ? 0.5 : 1 }}>

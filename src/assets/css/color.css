@@ -1,0 +1,34 @@
+
+.textWhite {
+	color: white;
+	
+	&:hover {
+		color: red;
+	}
+
+	.primary {
+		color: pink;
+	}
+
+}
+
+.bgBlack {
+	composes: textWhite;
+	background-color: black;
+}
+
+.bgDarkGray {
+	composes: textWhite;
+	background-color: #212121;
+}
+
+.bgGray {
+	composes: textWhite;
+	background-color: #303030;
+}
+
+.bgLightGray {
+	composes: textWhite;
+	background-color: #424242;
+}
+
