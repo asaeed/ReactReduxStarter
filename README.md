@@ -1,4 +1,4 @@
 # ReactReduxStarter
 
-A boilerplate project incorporating React, Redux, Webpack, PostCSS
+A boilerplate project incorporating React, Redux, Webpack, PostCSS, FontAwesome
 
