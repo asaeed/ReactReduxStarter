@@ -5,6 +5,7 @@ import Header from '../components/Header'
 import Picker from '../components/Picker'
 import Posts from '../components/Posts'
 import styles from './App.css'
+require('font-awesome/css/font-awesome.css');
 
 class App extends Component {
   constructor(props) {

@@ -1,0 +1,10 @@
+
+@import "../assets/css/variables.css";
+
+:local(.button) {
+	padding: 4px;
+
+	&.open {
+		background-color: pink;
+	}
+}

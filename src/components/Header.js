@@ -1,12 +1,27 @@
 import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
+import { toggleSettings } from '../actions'
 import classnames from 'classnames'
 import styleLocal from './Header.css'
 import styleColor from '../assets/css/color.css'
-require('font-awesome/css/font-awesome.css');
+import SettingsButton from '../components/SettingsButton'
 
-export default class Header extends Component {
+class Header extends Component {
+
+  constructor(props) {
+    super(props);
+    this.onSettingsButtonClick = this.onSettingsButtonClick.bind(this);
+  }
+
+  onSettingsButtonClick(e) {
+    console.log('settings clicked');
+    this.props.dispatch(toggleSettings());
+  }
+
   render() {
-    const { title } = this.props
+    const { title, isSettingsOpen } = this.props
+
+    // css
     //var headerClass = classnames(styleLocal.header, styleColor.bgBlack, styleColor.textWhite, 'primary')
     var headerClass = styleLocal.header;
 
@@ -16,9 +31,7 @@ export default class Header extends Component {
           <h3>{ title }</h3>
         </div>
         <div className={ styleLocal.rightSide }>
-          <div className={ styleLocal.settingsButton }>
-            <i className="fa fa-lg fa-cog"></i>
-          </div>
+          <SettingsButton isOpen={ this.props.isSettingsOpen } onClick={ this.onSettingsButtonClick } />
         </div>
       </div>
     )
@@ -26,5 +39,13 @@ export default class Header extends Component {
 }
 
 Header.propTypes = {
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  isSettingsOpen: PropTypes.bool,
+  dispatch: PropTypes.func.isRequired
 }
+
+function mapStateToProps(state, ownProps) {
+  return { isSettingsOpen: state.settings.isOpen }
+}
+
+export default connect(mapStateToProps)(Header)

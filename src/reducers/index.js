@@ -1,8 +1,20 @@
 import { combineReducers } from 'redux'
 import {
+  TOGGLE_SETTINGS,
   SELECT_REDDIT, INVALIDATE_REDDIT,
   REQUEST_POSTS, RECEIVE_POSTS
 } from '../actions'
+
+function settings(state = { isOpen: false }, action) {
+  switch (action.type) {
+    case TOGGLE_SETTINGS:
+      return Object.assign({}, state, {
+        isOpen: !state.isOpen
+      })
+    default:
+      return state
+  }
+}
 
 function selectedReddit(state = 'reactjs', action) {
   switch (action.type) {
@@ -54,6 +66,7 @@ function postsByReddit(state = { }, action) {
 }
 
 const rootReducer = combineReducers({
+  settings,
   postsByReddit,
   selectedReddit
 })

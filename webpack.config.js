@@ -52,7 +52,7 @@ module.exports = {
       },
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url-loader?limit=10000&mimetype=application/font-woff',
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff&name=./font/[name].[ext]',
         include: [
           path.join(__dirname, 'node_modules/font-awesome'),
           path.join(__dirname, 'src/assets/font')
@@ -60,7 +60,7 @@ module.exports = {
       },
       {
         test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file-loader',
+        loader: 'file-loader?name=./font/[name].[ext]',
         include: [
           path.join(__dirname, 'node_modules/font-awesome'),
           path.join(__dirname, 'src/assets/font')

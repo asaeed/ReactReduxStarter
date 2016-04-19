@@ -1,9 +1,17 @@
 import fetch from 'isomorphic-fetch'
 
+export const TOGGLE_SETTINGS = 'TOGGLE_SETTINGS'
+
 export const REQUEST_POSTS = 'REQUEST_POSTS'
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 export const SELECT_REDDIT = 'SELECT_REDDIT'
 export const INVALIDATE_REDDIT = 'INVALIDATE_REDDIT'
+
+export function toggleSettings() {
+  return {
+    type: TOGGLE_SETTINGS
+  }
+}
 
 export function selectReddit(reddit) {
   return {

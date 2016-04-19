@@ -12,15 +12,11 @@
 
 	& .leftSide {
 		float: left;
+		//color: var(--mainColor);
 	}
 
 	& .rightSide {
-		float: right;
-
-		& .settingsButton {
-			margin-top: 4px;
-			//color: var(--mainColor);
-		}		
+		float: right;		
 	}
 
 }
