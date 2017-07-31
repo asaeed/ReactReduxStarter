@@ -3,8 +3,20 @@
 
 :local(.button) {
 	padding: 4px;
+	
+
+	& i {
+		transition: transform 1s ease;
+		//width: 16px;
+		//height: 16px;
+	}
 
 	&.open {
-		background-color: pink;
+		//background-color: pink;
+
+		& i {
+			transform: rotate(480deg);
+		}
+		
 	}
 }
